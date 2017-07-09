@@ -62,5 +62,5 @@ cp -f /var/local/ink/${IUPDATE_REPO}/repoverlist /var/local/ink/configs/inklists
 
 
 # Finish
-echo "Inker at v${IVERNO} from ${INKUPDATEREPO}."
+echo "Inker at v${IVERNO} framework from ${INKUPDATEREPO}."
 
