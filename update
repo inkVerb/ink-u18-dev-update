@@ -56,7 +56,7 @@ fi
 rm -rf /var/local/ink/knights/*
 cp -rf /var/local/ink/${IUPDATE_REPO}/knights/* /var/local/ink/knights/
 cp -f /var/local/ink/${IUPDATE_REPO}/repoverlist /var/local/ink/configs/inklists/
-echo "Knights and repo list up-to-date..."
+echo "Knights and repo list have been updated."
 
 # Run version-by-version updates
 
