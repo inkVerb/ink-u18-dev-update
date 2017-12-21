@@ -18,14 +18,14 @@ IUPDATE_REPO="ink-update-dev"
 #if [ $(echo ${UPDATE_PATCH_IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") -gt $(echo ${IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") ] ; then
 #
 # Move to working directory of the patch
-#if [ -d "/var/local/verb/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/" ]; then
-#cd /var/local/verb/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/; fi
+#if [ -d "/var/local/ink/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/" ]; then
+#cd /var/local/ink/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/; fi
 #
 #
 ## Run the update scripts for this patch
 #
 ###### SCRIPTS GO HERE #####
-## NOTE: PWD is /var/local/verb/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/
+## NOTE: PWD is /var/local/ink/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/
 #
 #
 ############################
@@ -60,6 +60,30 @@ echo "Knights and repo list have been updated."
 
 # Run version-by-version updates
 
+
+UPDATE_PATCH_IVERNO=0.205
+if [ $(echo ${UPDATE_PATCH_IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") -gt $(echo ${IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") ] ; then
+
+ Move to working directory of the patch
+if [ -d "/var/local/verb/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/" ]; then
+cd /var/local/verb/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/; fi
+
+
+# Run the update scripts for this patch
+
+##### SCRIPTS GO HERE #####
+# NOTE: PWD is /var/local/ink/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/
+cp -r conflab /var/local/ink/configs/
+
+###########################
+# Set and refresh the current version into inklists
+sed -i "s/IVERNO=.*/IVERNO=${UPDATE_PATCH_IVERNO}/g" /var/local/ink/configs/inklists/inkerverno
+. /var/local/ink/configs/inklists/inkerverno
+echo "Inker updated to v${IVERNO}"
+else
+echo "${UPDATE_PATCH_VERNO} patch not necessary..."
+fi
+###########################
 
 
 # Finish
