@@ -11,7 +11,7 @@
 
 
 MIN_IVERNO=0.204
-IUPDATE_REPO="ink-update-dev"
+IUPDATE_REPO="ink-dev-update"
 
 ## Sample version updater:
 #UPDATE_PATCH_IVERNO=
