@@ -13,6 +13,10 @@
 ## ./inkdnsinkrefreshverber verb name
 ## ./inkdnsinkrefreshverber dmod poetryiscode.com
 
+
+VTYPE="$1"
+VNAME="$2"
+
 # Install status
 if [ -f "/var/local/ink/conf/inkdns/inkdnsstatus" ]; then
 . /var/local/ink/conf/inkdns/inkdnsstatus
@@ -147,7 +151,7 @@ allow-query { any; };
 " >> /etc/bind/verbers/named.conf.${VTYPE}.${VNAME}.verbacct
     echo "${domainZone} records updated."
     done
-    
+
   else echo "inkDNS not installed, run inkdnsinstall first."; exit 0
   fi
 else echo "inkDNS not installed, run inkdnsinstall first."; exit 0
