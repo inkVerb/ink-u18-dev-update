@@ -44,7 +44,7 @@ IUPDATE_REPO="ink-dev-update"
 ## Include the configs
 . /var/local/ink/conf/inklists/inkerverno
 . /var/local/ink/conf/inkerinfo
-. /var/local/verb/configs/sitenameip
+. /var/local/verb/conf/sitenameip
 ## Check minimal updateable version
 if [ $(echo ${MIN_IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") -gt $(echo ${IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") ] ; then
 echo "Current Verber™ version is ${IVERNO}, minimum ${MIN_IVERNO} to use this updater.
