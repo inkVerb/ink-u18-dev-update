@@ -30,8 +30,8 @@ IUPDATE_REPO="ink-dev-update"
 #
 ############################
 ## Set and refresh the current version into inklists
-#sed -i "s/IVERNO=.*/IVERNO=${UPDATE_PATCH_IVERNO}/g" /var/local/ink/configs/inklists/inkerverno
-#. /var/local/ink/configs/inklists/inkerverno
+#sed -i "s/IVERNO=.*/IVERNO=${UPDATE_PATCH_IVERNO}/g" /var/local/ink/conf/inklists/inkerverno
+#. /var/local/ink/conf/inklists/inkerverno
 #echo "Inker updated to v${IVERNO}"
 #else
 #echo "${UPDATE_PATCH_VERNO} patch not necessary..."
@@ -42,8 +42,8 @@ IUPDATE_REPO="ink-dev-update"
 ## Version Check ##
 ### The minimum version that can use this updater
 ## Include the configs
-. /var/local/ink/configs/inklists/inkerverno
-. /var/local/ink/configs/inkerinfo
+. /var/local/ink/conf/inklists/inkerverno
+. /var/local/ink/conf/inkerinfo
 . /var/local/verb/configs/sitenameip
 ## Check minimal updateable version
 if [ $(echo ${MIN_IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") -gt $(echo ${IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") ] ; then
@@ -55,7 +55,7 @@ fi
 # Update Knights & repoverlist
 rm -rf /var/local/ink/knights/*
 cp -rf /var/local/ink/${IUPDATE_REPO}/knights/* /var/local/ink/knights/
-cp -f /var/local/ink/${IUPDATE_REPO}/repoverlist /var/local/ink/configs/inklists/
+cp -f /var/local/ink/${IUPDATE_REPO}/repoverlist /var/local/ink/conf/inklists/
 echo "Knights and repo list have been updated."
 
 # Run version-by-version updates
@@ -78,8 +78,8 @@ echo "Still updating serfs only for v0.206"
 
 ###########################
 # Set and refresh the current version into inklists
-sed -i "s/IVERNO=.*/IVERNO=${UPDATE_PATCH_IVERNO}/g" /var/local/ink/configs/inklists/inkerverno
-. /var/local/ink/configs/inklists/inkerverno
+sed -i "s/IVERNO=.*/IVERNO=${UPDATE_PATCH_IVERNO}/g" /var/local/ink/conf/inklists/inkerverno
+. /var/local/ink/conf/inklists/inkerverno
 echo "Inker updated to v${IVERNO}"
 else
 echo "${UPDATE_PATCH_VERNO} patch not necessary..."
