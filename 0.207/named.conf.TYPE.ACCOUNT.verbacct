@@ -208,3 +208,6 @@ masters { rocksdomIP6; };
 file "/etc/bind/zones-inker/nv.rocksdomainZone";
 allow-query { any; };
 };
+
+// Hosted domains
+

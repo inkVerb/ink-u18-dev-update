@@ -123,6 +123,7 @@ exit 0; fi
     sed -i "s/rocksdomARPAIP4/${VERBERARPAIP4}/g" /etc/bind/verbers/named.conf.${VTYPE}.${VNAME}.verbacct
     sed -i "s/rocksdomARPAIP6/${VERBERARPAIP6}/g" /etc/bind/verbers/named.conf.${VTYPE}.${VNAME}.verbacct
 
+    ### Wrap-up
     echo "Base Verber records updated for ${VTYPE} ${VNAME}."
 
     ## Each domain
@@ -131,7 +132,8 @@ exit 0; fi
       domainZone="$(echo ${domainNFO} | sed 's/tld\.//' )"
       . /var/local/ink/verbers/v.${VTYPE}.${VNAME}/${domainNFO}
       . /var/local/ink/verbers/v.${VTYPE}.${VNAME}/tld.${verberTLD}
-      echo "zone \"${domainZone}\" {
+      echo "// ${domainZone}
+zone \"${domainZone}\" {
 type slave;
 masters { $domIP6; $domIP4; };
 file \"/etc/bind/zones-inker/db.${domainZone}\";
