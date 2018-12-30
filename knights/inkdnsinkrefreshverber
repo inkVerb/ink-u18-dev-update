@@ -23,7 +23,7 @@ if [ -f "/var/local/ink/conf/inkdns/inkdnsstatus" ]; then
   if [ "${INKDNSINKERSTAT}" = "INSTALLED" ]; then
 
 # Account status
-if [ ! -f "/var/local/ink/verbers/v.${VTYPE}.${VNAME}" ]; then
+if [ ! -d "/var/local/ink/verbers/v.${VTYPE}.${VNAME}" ]; then
 echo "The Verber \"${VNAME}\" type \"${VTYPE}\" does not exist. Doing nothing."
 exit 0; fi
 
@@ -123,7 +123,7 @@ exit 0; fi
     sed -i "s/rocksdomARPAIP4/${VERBERARPAIP4}/g" /etc/bind/verbers/named.conf.${VTYPE}.${VNAME}.verbacct
     sed -i "s/rocksdomARPAIP6/${VERBERARPAIP6}/g" /etc/bind/verbers/named.conf.${VTYPE}.${VNAME}.verbacct
 
-    echo "Base Verber records updated."
+    echo "Base Verber records updated for ${VTYPE} ${VNAME}."
 
     ## Each domain
     cd /var/local/ink/verbers/v.${VTYPE}.${VNAME}
@@ -149,7 +149,7 @@ file \"/etc/bind/zones-inker/nv.${domainZone}\";
 allow-query { any; };
 };
 " >> /etc/bind/verbers/named.conf.${VTYPE}.${VNAME}.verbacct
-    echo "${domainZone} records updated."
+    echo "${domainZone} records updated for ${VTYPE} ${VNAME}."
     done
 
   else echo "inkDNS not installed, run inkdnsinstall first."; exit 0

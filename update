@@ -73,7 +73,10 @@ cd /var/local/verb/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/; fi
 
 ##### SCRIPTS GO HERE #####
 
-echo "Still updating serfs only for v0.206"
+echo "THIS SCRIPT SHOULD NOT RUN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+
+# inkDNS
+cp named.conf.TYPE.ACCOUNT.verbacct /var/local/ink/conf/inkdns/
 
 
 ###########################
