@@ -61,7 +61,7 @@ echo "Knights and repo list have been updated."
 # Run version-by-version updates
 
 
-UPDATE_PATCH_IVERNO=0.207
+UPDATE_PATCH_IVERNO=0.206
 if [ $(echo ${UPDATE_PATCH_IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") -gt $(echo ${IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") ] ; then
 
  Move to working directory of the patch
@@ -72,6 +72,8 @@ cd /var/local/verb/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/; fi
 # Run the update scripts for this patch
 
 ##### SCRIPTS GO HERE #####
+
+echo "Still updating serfs only for v0.206"
 
 
 ###########################
