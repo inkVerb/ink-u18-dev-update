@@ -10,7 +10,7 @@
 # DEV INSTRUCTIONS: Put all related files for each patch in a folder named by the version number, ie 0.806
 
 
-MIN_IVERNO=0.206
+MIN_IVERNO=0.20.06
 IUPDATE_REPO="ink-dev-update"
 
 ## Sample version updater:
@@ -61,7 +61,7 @@ echo "Knights and repo list have been updated."
 # Run version-by-version updates
 
 
-UPDATE_PATCH_IVERNO=0.206
+UPDATE_PATCH_IVERNO=0.20.07
 if [ $(echo ${UPDATE_PATCH_IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") -gt $(echo ${IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") ] ; then
 
  Move to working directory of the patch
@@ -92,4 +92,3 @@ fi
 
 # Finish
 echo "Inker at v${IVERNO} framework from ${INKUPDATEREPO}."
-
