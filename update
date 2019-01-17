@@ -61,7 +61,7 @@ echo "Knights and repo list have been updated."
 # Run version-by-version updates
 
 
-UPDATE_PATCH_IVERNO=0.20.07
+UPDATE_PATCH_IVERNO=0.20.06
 if [ $(echo ${UPDATE_PATCH_IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") -gt $(echo ${IVERNO} | sed -e "s/\.//" | sed -e "s/^0*//") ] ; then
 
  Move to working directory of the patch
@@ -74,9 +74,6 @@ cd /var/local/verb/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/; fi
 ##### SCRIPTS GO HERE #####
 
 echo "THIS SCRIPT SHOULD NOT RUN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-
-# inkDNS
-cp named.conf.TYPE.ACCOUNT.verbacct /var/local/ink/conf/inkdns/
 
 
 ###########################
