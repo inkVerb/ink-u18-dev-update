@@ -251,6 +251,9 @@ echo "@		IN  NS		${hostURI}.
 chown bind:bind /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${SERVERTLD}
 chmod 644 /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${SERVERTLD}
 
+# Almost finished
+echo " The ${VTYPE} Verber for ${VNAME} has been setup with the primary TLD as ${SERVERTLD}, now premaring other TLD entries..."
+
 # Create the first Verber DNS entries
 /var/local/ink/knights/verberverbdomain ${VTYPE} ${VNAME} email
 /var/local/ink/knights/verberverbdomain ${VTYPE} ${VNAME} city
@@ -263,3 +266,6 @@ chmod 644 /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${SERVERTLD}
 /var/local/ink/knights/verberverbdomain ${VTYPE} ${VNAME} pink
 /var/local/ink/knights/verberverbdomain ${VTYPE} ${VNAME} red
 /var/local/ink/knights/verberverbdomain ${VTYPE} ${VNAME} rocks
+
+# Finish
+echo "All setup!"
