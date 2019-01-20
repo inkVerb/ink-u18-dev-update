@@ -239,17 +239,17 @@ echo "\$TTL    86400
 1800 )			; Minimum TTL
 
 ; Nameserver Defaults
-@		IN  NS		${hostURI}." > /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${VTLD}
+@		IN  NS		${hostURI}." > /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${SERVERTLD}
 ## Now, change the variables for this specific Inkver's Verber settings
 ### Include Inker's Verb config
 . /var/local/verb/conf/sitenameip
 echo "@		IN  NS		${hostURI}.
 @		IN  NS		${SITEINKERDNS}.
 
-; Hosted Domains" >> /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${VTLD}
+; Hosted Domains" >> /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${SERVERTLD}
 ## Permissions
-chown bind:bind /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${VTLD}
-chmod 644 /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${VTLD}
+chown bind:bind /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${SERVERTLD}
+chmod 644 /var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${SERVERTLD}
 
 # Create the first Verber DNS entries
 /var/local/ink/knights/verberverbdomain ${VTYPE} ${VNAME} email
