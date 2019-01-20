@@ -68,6 +68,7 @@ ${!addverbURI}.		IN  SOA		${hostURI}. root.${nameURI}. (
 @		IN  NS		${hostURI}." > /var/cache/bind/zones-inker/db.${!addverbURI}
 ## Inker's Verber config
 . /var/local/verb/conf/sitenameip
+. /var/local/verb/conf/siteurilist
 echo "@		IN  NS		${hostURI}.
 @		IN  NS		${SITEINKERDNS}.
 
