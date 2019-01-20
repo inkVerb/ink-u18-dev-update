@@ -13,9 +13,13 @@
 ## ./verberverbdomain verb name kiwi
 ## ./verberverbdomain dmod poetryiscode.com
 
+
 VTYPE="$1"
 VNAME="$2"
 VADDTLD="$3"
+# Inker nsURI
+. /var/local/verb/conf/siteurilist
+nsURI="${hostURI}"
 
 # Check if Verber account exists
 if [ ! -d "/var/local/ink/verbers/v.${VTYPE}.${VNAME}" ]; then
@@ -52,6 +56,9 @@ if [ "${!hostingTLD}" != "ink" ]; then
   echo "Something is very wrong. The hosting Verber TLD is not set to \"ink\", but multi-hosting is not allowed. Aborting."
   exit 6; fi; fi
 
+# Inker's Verber config
+. /var/local/verb/conf/sitenameip
+
 # DNS zone file
 ## Hosting Verber's config
 rm -f /var/cache/bind/zones-inker/db.${!addverbURI}
@@ -65,11 +72,8 @@ ${!addverbURI}.		IN  SOA		${hostURI}. root.${nameURI}. (
 
 \$ORIGIN ${!addverbURI}.
 ; Nameserver Defaults
-@		IN  NS		${hostURI}." > /var/cache/bind/zones-inker/db.${!addverbURI}
-## Inker's Verber config
-. /var/local/verb/conf/sitenameip
-. /var/local/verb/conf/siteurilist
-echo "@		IN  NS		${hostURI}.
+@		IN  NS		${hostURI}.
+@		IN  NS		${nsURI}.
 @		IN  NS		${SITEINKERDNS}.
 
 ; Original Defaults
