@@ -42,7 +42,7 @@ if [ -z "${!addverbURI}" ]; then
 
 # Check if the necessary Bind rDNS file exists
 if [ ! -f "/var/cache/bind/zones-inker/nv.${VTYPE}.${VNAME}.${!hostingTLD}" ]; then
-  echo "Something's wrong. The Bind rDNS file for this Verber should exist, but it does not. Doing nothing."
+  echo "Something's wrong. The Bind rDNS file for the \"${VTYPE}.${VNAME}.${!hostingTLD}\" Verber should exist, but it does not. Doing nothing."
   exit 6; fi
 
 # Check whether the multiple hosting option is allowed, abort if not
