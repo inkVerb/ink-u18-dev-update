@@ -61,7 +61,7 @@ echo "Knights and repo list have been updated."
 # Run version-by-version updates
 
 
-UPDATE_PATCH_IVERNO=0.20.06
+UPDATE_PATCH_IVERNO=0.20.07
 if [ $(echo ${UPDATE_PATCH_IVERNO} | sed -e "s/\.//g" | sed -e "s/^0*//g") -gt $(echo ${IVERNO} | sed -e "s/\.//g" | sed -e "s/^0*//g") ] ; then
 
  Move to working directory of the patch
@@ -72,9 +72,11 @@ cd /var/local/verb/${IUPDATE_REPO}/${UPDATE_PATCH_IVERNO}/; fi
 # Run the update scripts for this patch
 
 ##### SCRIPTS GO HERE #####
-
-echo "THIS SCRIPT SHOULD NOT RUN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-
+# Directory change
+mv /var/local/ink /opt/
+ln -sfn /opt/ink /var/local/
+ln -sfn /opt/ink /root/
+ln -sfn /opt/ink /home/vik/
 
 ###########################
 # Set and refresh the current version into inklists
